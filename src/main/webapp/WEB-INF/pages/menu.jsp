@@ -18,14 +18,15 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link  ${pageContext.request.requestURI eq '/ParkingLot/about.jsp' ? ' active' : ''}" 
+                            <a class="nav-link  ${pageContext.request.requestURI eq '/LSoftwareEngineering/about.jsp' ? ' active' : ''}" 
                                href="${pageContext.request.contextPath}/about.jsp">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                            <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/Cars.jsp' ? ' active' : ''}" 
+                               href="${pageContext.request.contextPath}/Cars">Cars</a>
                         </li>
                     </ul>
                     <ul class="navbar-navd-flex">
