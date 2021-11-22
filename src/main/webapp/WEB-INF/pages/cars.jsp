@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<t:pageTemplate pageTitle="cars">
+<t:pageTemplate pageTitle="Cars">
     <h1>Those are the cars in the Parking Lot</h1>
     <c:forEach var="car" items="${cars}" varStatus="status">
         <div class="row">

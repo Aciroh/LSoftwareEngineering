@@ -26,7 +26,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/cars.jsp' ? ' active' : ''}" 
-                               href="${pageContext.request.contextPath}/cars">Cars</a>
+                               href="${pageContext.request.contextPath}/Cars">Cars</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/users.jsp' ? ' active' : ''}" 
