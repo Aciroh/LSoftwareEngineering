@@ -2,10 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.park.parkinglot.servlet;
+package com.lse.lsoftwareengineering.servlet;
 
+import com.lse.lsoftwareengineering.common.CarDetails;
+import com.lse.lsoftwareengineering.ejb.CarBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Cars", urlPatterns = {"/Cars"})
 public class Cars extends HttpServlet {
 
+    @Inject
+    private CarBean carBean;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,7 +63,12 @@ public class Cars extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("numberOfFreeParkingSpots", 115); 
+        request.setAttribute("activePage","Cars");
+        request.setAttribute("numberOfFreeParkingSpots", 115);
+        
+        List<CarDetails> cars= carBean.getAllCars();
+        request.setAttribute("cars",cars);
+        
         request.getRequestDispatcher("/WEB-INF/pages/Cars.jsp").forward(request, response);
     }
 

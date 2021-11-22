@@ -25,8 +25,12 @@
                             <a class="nav-link" href="#">Link</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/Cars.jsp' ? ' active' : ''}" 
-                               href="${pageContext.request.contextPath}/Cars">Cars</a>
+                            <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/cars.jsp' ? ' active' : ''}" 
+                               href="${pageContext.request.contextPath}/cars">Cars</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/users.jsp' ? ' active' : ''}" 
+                               href="${pageContext.request.contextPath}/users">Users</a>
                         </li>
                     </ul>
                     <ul class="navbar-navd-flex">
