@@ -4,7 +4,9 @@
  */
 package com.lse.lsoftwareengineering.ejb;
 
+import com.lse.lsoftwareengineering.common.CarDetails;
 import com.lse.lsoftwareengineering.entity.Car;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.ejb.EJBException;
@@ -23,14 +25,26 @@ public class CarBean {
     @PersistenceContext
     private EntityManager em;
 
-    public List<Car> getAllCars() {
+    public List<CarDetails> getAllCars() {
         LOG.info("getAllCars");
         try {
             List<Car> cars = (List<Car>) em.createQuery("SELECT c FROM Car c").getResultList();
-            return cars;
+            return copyCarsToDetails(cars);
         } catch (Exception ex) {
             throw new EJBException(ex);
         }
+    }
+    
+    private List<CarDetails> copyCarsToDetails(List<Car> cars){
+        List<CarDetails> detailsList=new ArrayList<>();
+        for(Car car: cars){
+            CarDetails carDetails=new CarDetails(car.getId(),
+                        car.getLicensePlate(),
+                        car.getParkingSpot(),
+                        car.getUser().getUsername());
+                    detailsList.add(carDetails);
+        }
+        return detailsList;
     }
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
