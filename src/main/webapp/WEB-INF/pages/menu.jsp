@@ -30,7 +30,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/users.jsp' ? ' active' : ''}" 
-                               href="${pageContext.request.contextPath}/users">Users</a>
+                               href="${pageContext.request.contextPath}/Users">Users</a>
                         </li>
                     </ul>
                     <ul class="navbar-navd-flex">
