@@ -1,4 +1,4 @@
-package com.lse.lsoftwareengineering.entity;
+package com.lse.lsoftwareengineering.servlet;
 
 import com.lse.lsoftwareengineering.common.UserDetails;
 import com.lse.lsoftwareengineering.ejb.UserBean;
@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "Users", urlPatterns = {"/Users"})
-public class User extends HttpServlet {
+public class Users extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
