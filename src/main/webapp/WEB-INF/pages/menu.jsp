@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,18 +25,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
                         </li>
+                        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/cars.jsp' ? ' active' : ''}" 
                                href="${pageContext.request.contextPath}/Cars">Cars</a>
                         </li>
+                        </c:if>
+                        <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
                         <li class="nav-item">
                             <a class="nav-link ${pageContext.request.requestURI eq '/LSoftwareEngineering/WEB-INF/pages/users.jsp' ? ' active' : ''}" 
                                href="${pageContext.request.contextPath}/Users">Users</a>
                         </li>
+                        </c:if>
                     </ul>
                     <ul class="navbar-navd-flex">
                         <li class="nav-item">
-                            <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
+                            <c:choose>
+                                <c:when test="${pageContext.request.getRemoteUser() == null}">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/Logout">Logout</a>
+                                </c:otherwise>
+                            </c:choose>
                         </li>
                     </ul>
                 </div>
