@@ -17,6 +17,8 @@ public class UserDetails implements java.io.Serializable{
     
     private String position;
 
+    private String password;
+
     public Integer getId() {
         return id;
     }
@@ -33,11 +35,14 @@ public class UserDetails implements java.io.Serializable{
         return position;
     }
 
-    public UserDetails(Integer id, String username, String email, String position) {
+    public String getPassword() {return password;}
+
+    public UserDetails(Integer id, String username, String email, String position, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.position = position;
+        this.password = password;
     }
     
     

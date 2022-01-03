@@ -4,6 +4,7 @@ import com.lse.lsoftwareengineering.common.UserDetails;
 import com.lse.lsoftwareengineering.ejb.CarBean;
 import com.lse.lsoftwareengineering.ejb.UserBean;
 
+import javax.annotation.security.DeclareRoles;
 import javax.inject.Inject;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -12,7 +13,8 @@ import java.io.IOException;
 import java.util.List;
 
 import static java.lang.Integer.*;
-
+@DeclareRoles({"AdminRole","ClientRole"})
+@ServletSecurity(value=@HttpConstraint(rolesAllowed = {"AdminRole"}))
 @WebServlet(name = "AddCar", value = "/AddCar")
 public class AddCar extends HttpServlet {
 

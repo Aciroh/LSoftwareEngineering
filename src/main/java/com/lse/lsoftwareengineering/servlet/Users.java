@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+
+@ServletSecurity(value=@HttpConstraint(rolesAllowed = {"AdminRole", "ClientRole"}))
 @WebServlet(name = "Users", urlPatterns = {"/Users"})
 public class Users extends HttpServlet {
 

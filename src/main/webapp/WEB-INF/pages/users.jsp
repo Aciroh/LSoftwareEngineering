@@ -4,17 +4,20 @@
 
 
 <t:pageTemplate pageTitle="Users">
-    <h1>Those are the cars in the Parking Lot</h1>
-    <c:forEach var="fraier" items="${users}" varStatus="status">
+    <h1>Users</h1>
+    <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+        <a class="btn btn-primary btn-lgn" href="${pageContext.request.contextPath}/AddUser" role="button">Add User</a>
+    </c:if>
+    <c:forEach var="user" items="${users}" varStatus="status">
         <div class="row">
             <div class="col-md-4">
-                ${fraier.username}
+                ${user.username}
             </div>
             <div class="col-md-4">
-                ${fraier.position}
+                ${user.position}
             </div>
             <div class="col-md-4">
-                ${fraier.email}
+                ${user.email}
             </div>
         </div>
     </c:forEach>

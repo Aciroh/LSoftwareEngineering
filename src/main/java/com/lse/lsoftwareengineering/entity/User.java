@@ -34,8 +34,11 @@ public class User implements Serializable {
 
     private String position;
 
+    private String password;
+
     @OneToMany(mappedBy="user")
     private Collection<Car> cars;
+
 
     public Collection<Car> getCars() {
         return cars;
@@ -88,7 +91,7 @@ public class User implements Serializable {
         this.position = position;
     }
 
+    public String getPassword(){ return password;}
 
-    
-    
+    public void setPassword(String passwordSha256) { this.password = passwordSha256;}
 }

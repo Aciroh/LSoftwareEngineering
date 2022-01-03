@@ -19,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -152,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641206250224</updated>
-      <workItem from="1641206251582" duration="17715000" />
+      <workItem from="1641206251582" duration="21473000" />
     </task>
     <servers />
   </component>
