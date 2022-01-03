@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package com.lse.lsoftwareengineering.servlet;
-
 import com.lse.lsoftwareengineering.common.CarDetails;
 import com.lse.lsoftwareengineering.ejb.CarBean;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -83,7 +83,15 @@ public class Cars extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String[] carIdsAsString = request.getParameterValues("car_ids");
+        if(carIdsAsString != null){
+            List<Integer> carIds = new ArrayList<>();
+            for(String carIdAsString : carIdsAsString){
+                carIds.add(Integer.parseInt(carIdAsString));
+            }
+            carBean.deleteCarsByIds(carIds);
+        }
+        response.sendRedirect(request.getContextPath()+"/Cars");
     }
 
     /**

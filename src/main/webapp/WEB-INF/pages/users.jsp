@@ -5,16 +5,16 @@
 
 <t:pageTemplate pageTitle="Users">
     <h1>Those are the cars in the Parking Lot</h1>
-    <c:forEach var="car" items="${cars}" varStatus="status">
+    <c:forEach var="fraier" items="${users}" varStatus="status">
         <div class="row">
             <div class="col-md-4">
-                ${car.licensePlate}
+                ${fraier.username}
             </div>
             <div class="col-md-4">
-                ${car.parkingSpot}
+                ${fraier.position}
             </div>
             <div class="col-md-4">
-                ${car.username}
+                ${fraier.email}
             </div>
         </div>
     </c:forEach>

@@ -4,6 +4,7 @@
  */
 package com.lse.lsoftwareengineering.entity;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -31,9 +33,19 @@ public class User implements Serializable {
     private String email;
 
     private String position;
+
+    @OneToMany(mappedBy="user")
+    private Collection<Car> cars;
+
+    public Collection<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Collection<Car> cars) {
+        this.cars = cars;
+    }
     
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="USER_KEY")
+
     
     
 
@@ -76,7 +88,7 @@ public class User implements Serializable {
         this.position = position;
     }
 
-    
 
+    
     
 }
