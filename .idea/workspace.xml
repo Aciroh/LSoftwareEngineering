@@ -53,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ingsoft-2021/Etapa 3/ROYALdEV-Complet" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="GlassFish Server.GlassFish 5.1.0">
     <configuration name="GlassFish 5.1.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -154,6 +154,8 @@
       <option name="presentableId" value="Default" />
       <updated>1641206250224</updated>
       <workItem from="1641206251582" duration="21473000" />
+      <workItem from="1641535258329" duration="964000" />
+      <workItem from="1641649732996" duration="1903000" />
     </task>
     <servers />
   </component>

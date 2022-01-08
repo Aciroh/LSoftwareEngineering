@@ -12,7 +12,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="LSoftwareEngineering" options="-endorseddirs C:\Users\homer\Documents\GitHub\LSoftwareEngineering\target/endorsed" />
+      <module name="LSoftwareEngineering" options="-endorseddirs C:\Users\homer\Documents\NetBeansProjects\LSoftwareEngineering\target/endorsed" />
     </option>
   </component>
 </project>
