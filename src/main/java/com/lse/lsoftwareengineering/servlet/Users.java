@@ -1,6 +1,7 @@
 package com.lse.lsoftwareengineering.servlet;
 
 import com.lse.lsoftwareengineering.common.UserDetails;
+import com.lse.lsoftwareengineering.ejb.InvoiceBean;
 import com.lse.lsoftwareengineering.ejb.UserBean;
 
 import javax.inject.Inject;
@@ -9,7 +10,10 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @ServletSecurity(value=@HttpConstraint(rolesAllowed = {"AdminRole", "ClientRole"}))
@@ -27,7 +31,10 @@ public class Users extends HttpServlet {
      */
 
     @Inject
-    private UserBean userBean;
+    UserBean userBean;
+
+    @Inject
+    InvoiceBean invoiceBean;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -58,11 +65,18 @@ public class Users extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+
         //processRequest(request, response);
         request.setAttribute("activePage", "Users");
 
         List<UserDetails> users = userBean.getAllUsers();
         request.setAttribute("users", users);
+
+        if(!invoiceBean.getUserIds().isEmpty()){
+            Collection<String> usernames = userBean.findUsernames(invoiceBean.getUserIds());
+            request.setAttribute("invoices", usernames);
+        }
 
         request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request, response);
 
@@ -79,7 +93,18 @@ public class Users extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String[] userIdsAsString = request.getParameterValues("user_ids");
+        if(userIdsAsString != null){
+
+            Set<Integer> userIds = new HashSet<Integer>();
+            for (String userIdAsString : userIdsAsString){
+                userIds.add(Integer.parseInt(userIdAsString));
+            }
+            invoiceBean.getUserIds().addAll(userIds);
+
+        }
+        response.sendRedirect(request.getContextPath() + "/Users");
+
     }
 
     /**

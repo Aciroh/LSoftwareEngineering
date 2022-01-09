@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -23,6 +24,14 @@ public class UserBean {
 
     @PersistenceContext
     private EntityManager em;
+
+    public Collection<String> findUsernames(Collection<Integer> userIds){
+        LOG.info("findUsernames");
+        List<String> usernames = (List<String>) em.createQuery("SELECT u.username FROM User u WHERE u.id IN ?1")
+                .setParameter(1, userIds)
+                .getResultList();
+        return usernames;
+    }
 
     public List<UserDetails> getAllUsers(){
         LOG.info("getAllUsers");
