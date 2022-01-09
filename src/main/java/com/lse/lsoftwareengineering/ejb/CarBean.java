@@ -6,6 +6,8 @@ package com.lse.lsoftwareengineering.ejb;
 
 import com.lse.lsoftwareengineering.common.CarDetails;
 import com.lse.lsoftwareengineering.entity.Car;
+import com.lse.lsoftwareengineering.entity.Photo;
+import com.lse.lsoftwareengineering.entity.PhotoDetails;
 import com.lse.lsoftwareengineering.entity.User;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -79,6 +82,30 @@ public class CarBean {
         User user = em.find(User.class,userId);
         user.getCars().add(car);
         car.setUser(user);
+    }
+
+    public void addPhotoToCar(Integer carId, String filename, String fileType, byte[] fileContent){
+        LOG.info("addPhotoToCar");
+        Photo photo = new Photo();
+        photo.setFilename(filename);
+        photo.setFileType(fileType);
+        photo.setFileContent(fileContent);
+
+        Car car = em.find(Car.class, carId);
+        car.setPhoto(photo);
+
+        photo.setCar(car);
+        em.persist(photo);
+    }
+
+    public PhotoDetails findPhotoByCarId (Integer carId){
+        TypedQuery<Photo> typedQuery = em.createQuery("SELECT p FROM Photo p where p.car.id = :id", Photo.class).setParameter("id",carId);
+        List<Photo> photos = typedQuery.getResultList();
+        if(photos.isEmpty()){
+            return null;
+        }
+        Photo photo = photos.get(0);
+        return new PhotoDetails (photo.getId(),photo.getFilename(),photo.getFileType(),photo.getFileContent());
     }
 
     public void deleteCarsByIds(List<Integer> ids) {
