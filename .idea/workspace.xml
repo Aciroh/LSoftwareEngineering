@@ -54,7 +54,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="GlassFish Server.GlassFish 5.1.0">
     <configuration name="GlassFish 5.1.0" type="GlassfishConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="GlassFish 5.1.0" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -155,10 +154,8 @@
       <option name="presentableId" value="Default" />
       <updated>1641206250224</updated>
       <workItem from="1641206251582" duration="21473000" />
-      <workItem from="1641404061371" duration="430000" />
-      <workItem from="1641721143359" duration="213000" />
-      <workItem from="1641731879793" duration="2747000" />
-      <workItem from="1641741092065" duration="1983000" />
+      <workItem from="1641535258329" duration="964000" />
+      <workItem from="1641649732996" duration="1903000" />
     </task>
     <servers />
   </component>
